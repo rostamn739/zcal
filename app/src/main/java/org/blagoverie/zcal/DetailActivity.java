@@ -2,6 +2,7 @@ package org.blagoverie.zcal;
 
 import android.app.*;
 import android.os.*;
+import android.webkit.WebView;
 import android.widget.*;
 import android.view.View.*;
 import android.view.View;
@@ -31,16 +32,19 @@ public class DetailActivity extends Activity
     {
         //why postcreate?
         super.onPostCreate(savedInstanceState);
-        TextView descr = (TextView)
+        WebView descr = (WebView)
                 findViewById(R.id.rozHtmlDescr);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            descr.setText(Html.fromHtml(
-                    getIntent().getStringExtra("currentParamBundle")
-                    , Html.FROM_HTML_MODE_COMPACT));
-        else {
-            descr.setText(Html.fromHtml(
-                    getIntent().getStringExtra("currentParamBundle")));
-        }
+        descr.loadData(getIntent()
+                .getStringExtra("currentParamBundle"),
+                "text/html", null);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+//            descr.setText(Html.fromHtml(
+//                    getIntent().getStringExtra("currentParamBundle")
+//                    , Html.FROM_HTML_MODE_COMPACT));
+//        else {
+//            descr.setText(Html.fromHtml(
+//                    getIntent().getStringExtra("currentParamBundle")));
+//        }
         //descr.setText("Description of " +
 //getIntent().getStringExtra(
         //"currentParamBundle"));

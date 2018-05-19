@@ -1,4 +1,4 @@
-package blagoverie.org.zcal;
+package org.blagoverie.zcal;
 
 import org.junit.Test;
 

@@ -127,7 +127,7 @@ public class ZDateCal
     }
 
     public static ZDate fromGreg(
-            java.util.Date greg) {
+            Date greg) {
         int months;
         int days;
         int diff;
@@ -140,13 +140,39 @@ public class ZDateCal
         if (days == 0) days = 30;
         resu.iroz = days;
 
-        if (diff >= 360) {
+        if (diff > 360) {
             resu.imah = 13;
         } else {
-            months = (int) Math.floor(diff / 30);
+            months = (int) Math.floor((diff-1) / 30);
             resu.imah = months + 1;
         }
         resu.year = diffInYears(greg);
         return resu;
     }
+
+    @Deprecated
+    public static ZDate fromGreg2(
+            java.util.Date greg) {
+        Date today = greg;
+        int year = today.getYear();
+        int month =today.getMonth();//0-11
+        //getting 2004yrs nowruz
+        Calendar cale = Calendar.getInstance();
+        cale.set(Calendar.YEAR, 2004);
+        cale.set(Calendar.MONTH, 2);
+        cale.set(Calendar.DAY_OF_MONTH, 21);
+        Date noRuz = cale.getTime();
+        int msPerDay = 24*60*60*1000;
+        int dayOfYear = (int) Math.floor(
+                (1+((today.getTime() - noRuz.getTime())/msPerDay))%365);
+        dayOfYear = dayOfYear - 3;
+        if (dayOfYear==0) dayOfYear=365;
+        ZDate resu = new ZDate();
+        resu.imah = (int)(Math.floor((dayOfYear-1)/30)) + 1;
+        if (dayOfYear >= 360) resu.imah = 13;
+        resu.iroz = dayOfYear+30-resu.imah*30;
+        resu.year = diffInYears(greg);
+        return resu;
+    }
+
 }

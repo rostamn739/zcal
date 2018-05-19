@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "org.blagoverie.zcal"
+        applicationId "org.blagoverie.org.blagoverie.zcal"
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 1

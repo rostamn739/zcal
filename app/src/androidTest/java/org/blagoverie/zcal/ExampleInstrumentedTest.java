@@ -1,4 +1,4 @@
-package blagoverie.org.zcal;
+package org.blagoverie.zcal;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("blagoverie.org.zcal", appContext.getPackageName());
+        assertEquals("org.blagoverie.org.blagoverie.zcal", appContext.getPackageName());
     }
 }

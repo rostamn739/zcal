@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="fill"
-    style="@style/AppTheme"
+    android:gravity="center"
     android:orientation="vertical">
 
     <DatePicker
+        android:id="@+id/gregCal"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_gravity="top|left"
-        android:layout_weight="5"
-        android:id="@+id/gregCal"/>
+        android:layout_gravity="center"
+        android:layout_weight="50" />
 
     <Button
+        android:id="@+id/RojMahButton"
         style="?android:attr/buttonBarButtonStyle"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="Bar Button"
-        android:id="@+id/RojMahButton"/>
+        android:layout_height="wrap_content"
+        android:layout_weight="50"
+        android:text="Roz" />
 
 </LinearLayout>

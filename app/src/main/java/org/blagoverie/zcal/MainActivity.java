@@ -3,7 +3,6 @@ package org.blagoverie.zcal;
 import android.app.*;
 import android.os.*;
 import android.widget.Button;
-import android.view.View.*;
 import android.view.View;
 import android.content.Intent;
 import android.widget.*;
